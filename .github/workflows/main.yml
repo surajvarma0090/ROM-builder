@@ -1,0 +1,24 @@
+name: System Info
+
+on: [push]
+
+jobs:
+  show-info:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Display RAM, storage, and CPU info
+        run: |
+          echo "Showing RAM Information:"
+          free -h
+          echo ""
+          
+          echo "Showing Storage Information:"
+          df -h
+          echo ""
+          
+          echo "Showing CPU Information:"
+          lscpu
